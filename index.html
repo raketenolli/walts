@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Altitude Simulation</title>
+        <link rel="stylesheet" href="walts.css">
+        <meta charset="UTF-8">
+        <script language="javascript" src="lz-string.min.js"></script>
+        <script language="javascript" src="index.js" async></script>
+    </head>
+    <body>
+        <h2>Web Altitude Simulation <button onClick="update_motor_list()" style="float:right">Update motor database</button></h2>
+
+        <h1>Rocket data</h1>
+
+        <!-- <tr>
+            <td>Motor manufacturer</td>
+            <td><select class="motor_manufacturer" onChange="update_motor_selection(this)"></select></td>
+        </tr>
+        <tr>
+            <td>Motor</td>
+            <td><select class="motor" onChange="new_motor_selected(this)"></select></td>
+        </tr>
+        <tr>
+            <td>Motor data</td>
+            <td><span class="motor_data"></span></td>
+        </tr> -->
+        <div style="display:flex; flex-direction:column; overflow-x:auto" class="stage">
+            <h2>Stage 1</h2>
+            <div style="display:flex; flex-direction:row; overflow-x: auto;">
+                <table>
+                    <tr>
+                        <td>Diameter</td>
+                        <td><input class="diameter" size="4"/> mm</td>
+                    </tr>
+                    <tr>
+                        <td>Drag coefficient</td>
+                        <td><input class="drag_coefficient" size="4"/></td>
+                    </tr>
+                    <tr>
+                        <td>Empty mass</td>
+                        <td><input class="empty_mass" size="4"/> g</td>
+                    </tr>
+                </table>
+                <fieldset style="width:16em;">
+                    <legend>Motor set</legend>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td><input class="number" value="1" size="4"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Motor manufacturer</td>
+                            <td><select class="motor_manufacturer" onChange="update_motor_selection(this)"></select></td>
+                        </tr>
+                        <tr>
+                            <td>Motor</td>
+                            <td><select class="motor" onChange="new_motor_selected(this)"></select></td>
+                        </tr>
+                        <tr>
+                            <td>Motor data</td>
+                            <td><span class="motor_data"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Ignition delay</td>
+                            <td><input class="ignition_delay" value="0" size="4"></input> s</td>
+                        </tr>
+                    </table>
+                    <button onClick="remove_motors(this)">Remove</button>
+                </fieldset>
+                <button onClick="add_motors(this)">Add<br/>motors</button>
+            </div>
+        </div>
+        <button onClick="add_stage(this)" style="width:25em">Add stage</button>
+
+        <h1>Environment</h1>
+
+        <table>
+            <tr>
+                <td>Temperature</td>
+                <td><input id="temperature" value="15"> &deg;C</td>
+            </tr>
+            <tr>
+                <td>Pressure</td>
+                <td><input id="pressure" value="1013"> hPa</td>
+            </tr>
+            <tr>
+                <td>Launch guide length</td>
+                <td><input id="guide_length" value="1"> m</td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Run simulation" onClick="run_simulation()" style="width:25em; height:3em; margin:4em 0em 2em;">
+
+        <h1>Simulation results</h1>
+
+        <table id="simulation_overview">
+
+        </table>
+
+        <svg id="chart" viewBox="-130 0 1000 400" xmlns="http://www.w3.org/2000/svg" style="width:100%; height: auto; background-color: #d8f2ff"></svg>
+
+    </body>
+</html>
