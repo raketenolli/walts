@@ -285,7 +285,9 @@ function round_to_nearest_scale(x) {
 
 function draw_chart(data, time, time_step, id) {
     const W = document.getElementById(id).viewBox.baseVal.width + document.getElementById(id).viewBox.baseVal.x;
+    const W_chart = Number(document.getElementById(id).dataset.chartWidth);
     const H = document.getElementById(id).viewBox.baseVal.height;
+    time = time * W / W_chart;
     let chart = "";
     // determine range of alt, vel and accel
     let delta_altitude = Math.max(...data["altitude"]);
