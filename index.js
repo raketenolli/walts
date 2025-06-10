@@ -189,7 +189,7 @@ function new_motor_selected(motor_selection_element) {
     let selected_motor = motor_selection_element.value;
     let motor_data_element = motor_selection_element.closest("table").querySelector(".motor_data");
     if(localStorage.getItem(selected_motor) === null || JSON.parse(localStorage.getItem(selected_motor)).is_up_to_date == false) {
-        fetch("http://www.thrustcurve.org/api/v1/download.json?motorIds="+selected_motor+"&data=samples")
+        fetch("https://www.thrustcurve.org/api/v1/download.json?motorIds="+selected_motor+"&data=samples")
         .then(response => response.json())
         .then(response => {
             let cert_curves = response.results.filter(e => e.source == "cert");
